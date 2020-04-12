@@ -1,0 +1,63 @@
+<odoo>
+        <record model="ir.actions.act_window" id="patient_list_action">
+            <field name="name">Patient</field>
+            <field name="res_model">hospital.patient</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Create the first patient
+                </p>
+            </field>
+        </record>
+
+        <!-- patient tree view -->
+        <record model="ir.ui.view" id="patient_tree_view">
+            <field name="name">patient.tree</field>
+            <field name="model">hospital.patient</field>
+            <field name="arch" type="xml">
+                <tree string="Patient Tree">
+                    <field name="name"/>
+                    <field name="age_group"/>
+                    <field name="gender"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- patient form view -->
+        <record model="ir.ui.view" id="patient_form_view">
+            <field name="name">patient.form</field>
+            <field name="model">hospital.patient</field>
+            <field name="arch" type="xml">
+                <form string="Patient Form">
+                    <sheet>
+                        <group string="Patient information">
+                            <field name="name"/>
+                            <field name="age"/>
+                            <field name="gender"/>
+                            <field name="note"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- search patient -->
+         <record model="ir.ui.view" id="patient_search_view">
+            <field name="name">patient.search</field>
+            <field name="model">hospital.patient</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <filter name="age_group" string="Minor"
+                            domain="[('age_group', '=', 'minor')]"/>
+                    <filter name="age_group" string="Major"
+                            domain="[('age_group', '=', 'major')]"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- menu -->
+        <menuitem id="main_hospital_menu" name="Hospital" action="patient_list_action"/>
+
+</odoo>
