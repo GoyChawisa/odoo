@@ -16,5 +16,5 @@ $docker-compose up
 
 ```bash
 $docker-compose down
-$docker-compose exec odoo odoo --no-xmlrpc -i openacademy -d master --db_host db -r odoo -w odoo --stop-after-init
+$docker-compose exec odoo odoo --no-xmlrpc -i hospital -d master --db_host db -r odoo -w odoo --stop-after-init
 ```
