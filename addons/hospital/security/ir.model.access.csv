@@ -1,3 +1,5 @@
 id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
 patient_manager,patient manager,model_hospital_patient,,1,1,1,1
 patient_read_all,patient all,model_hospital_patient,,1,1,1,1
+doctor_manager,doctor manager,model_hospital_doctor,,1,1,1,1
+doctor_read_all,doctor all,model_hospital_doctor,,1,1,1,1

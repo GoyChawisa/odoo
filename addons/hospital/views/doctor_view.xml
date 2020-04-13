@@ -1,0 +1,45 @@
+<odoo>
+        <record model="ir.actions.act_window" id="doctor_list_action">
+            <field name="name">Doctor</field>
+            <field name="res_model">hospital.doctor</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Create the first doctor
+                </p>
+            </field>
+        </record>
+
+        <!-- doctor tree view -->
+        <record model="ir.ui.view" id="doctor_tree_view">
+            <field name="name">doctor.tree</field>
+            <field name="model">hospital.doctor</field>
+            <field name="arch" type="xml">
+                <tree string="Doctor Tree">
+                    <field name="name"/>
+                    <field name="age"/>
+                    <field name="gender"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- doctor form view -->
+        <record model="ir.ui.view" id="doctor_form_view">
+            <field name="name">doctor.form</field>
+            <field name="model">hospital.doctor</field>
+            <field name="arch" type="xml">
+                <form string="Doctor Form">
+                    <sheet>
+                        <group string="Doctor information">
+                            <field name="name"/>
+                            <field name="age"/>
+                            <field name="gender"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <menuitem id="doctor_menu" name="Doctor" parent="main_hospital_menu" action="doctor_list_action"/>
+
+</odoo>
