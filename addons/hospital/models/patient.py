@@ -11,7 +11,7 @@ class Patient(models.Model):
     age_group = fields.Char(string="Age Group", compute='set_age_group', store=True)
     gender = fields.Selection(selection=[('Male','Male'),('Female','Female'),],string='Gender', default='Male', required=True)
     note = fields.Text()
-    doctor_id = fields.Many2one('hospital.doctor', string="Docter")
+    doctor_id = fields.Many2one('hospital.doctor', ondelete='set null', string="Docter", index=True)
     color = fields.Integer()
 
     @api.depends('age')
