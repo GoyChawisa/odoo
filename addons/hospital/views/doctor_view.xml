@@ -33,6 +33,7 @@
                         <group string="Doctor information">
                             <field name="name"/>
                             <field name="age"/>
+                            <field name="user_ref"/>
                             <field name="gender"/>
                         </group>
                     </sheet>
