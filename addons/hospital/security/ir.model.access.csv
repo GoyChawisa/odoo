@@ -1,4 +1,4 @@
 id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
-patient_manager,Patient Manager,model_hospital_patient,group_manager,1,0,0,0
-patient_all_accress,Patient All,model_hospital_patient,,1,1,1,1
+patient_manager,Patient Manager,model_hospital_patient,group_manager,1,1,1,1
+patient_general,Patient General,model_hospital_patient,group_general,1,0,0,0
 doctor_manager,Doctor Manager,model_hospital_doctor,,1,1,1,1
