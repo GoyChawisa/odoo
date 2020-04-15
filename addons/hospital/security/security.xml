@@ -1,0 +1,18 @@
+<odoo>
+        <record id="group_manager" model="res.groups">
+            <field name="name">Hospital / Manager</field>
+        </record>
+         <record id="only_responsible_can_modify" model="ir.rule">
+            <field name="name">Only Responsible can modify</field>
+            <field name="model_id" ref="model_hospital_patient"/>
+            <field name="groups" eval="[(4, ref('hospital.group_manager'))]"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+            <field name="domain_force">
+                ['|', ('doctor_id.user_ref.id','=',False),
+                      ('doctor_id.user_ref.id','=',user.id)]
+            </field>
+        </record>
+</odoo>
