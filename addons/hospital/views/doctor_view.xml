@@ -15,7 +15,8 @@
             <field name="name">doctor.tree</field>
             <field name="model">hospital.doctor</field>
             <field name="arch" type="xml">
-                <tree string="Doctor Tree">
+                <tree string="Doctor Tree" class="test">
+                    <field name="doctor_code"/>
                     <field name="name"/>
                     <field name="age"/>
                     <field name="gender"/>
@@ -39,6 +40,14 @@
                     </sheet>
                 </form>
             </field>
+        </record>
+
+        <!-- sequence doctor_code -->
+        <record id="seq_doctor" model="ir.sequence">
+            <field name="name">doctor_code</field>
+            <field name="code">hospital.doctor</field>
+            <field name="prefix">dr</field>
+            <field name="padding">3</field>
         </record>
 
         <menuitem id="doctor_menu" name="Doctor" parent="main_hospital_menu" action="doctor_list_action"/>

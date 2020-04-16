@@ -17,6 +17,7 @@
             <field name="model">hospital.patient</field>
             <field name="arch" type="xml">
                 <tree string="Patient Tree">
+                    <field name="patient_code"/>    
                     <field name="name"/>
                     <field name="age_group"/>
                     <field name="gender"/>
@@ -112,6 +113,14 @@
                     </templates>
                 </kanban>
             </field>
+        </record>
+
+        <!-- sequence patient_code -->
+        <record id="seq_patient" model="ir.sequence">
+            <field name="name">patient_code</field>
+            <field name="code">hospital.patient</field>
+            <field name="prefix">pt</field>
+            <field name="padding">3</field>
         </record>
 
         <!-- menu -->

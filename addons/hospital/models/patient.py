@@ -14,6 +14,7 @@ class Patient(models.Model):
     note = fields.Text(track_visibility='onchange')
     doctor_id = fields.Many2one('hospital.doctor', ondelete='set null', string="Docter", index=True, track_visibility='onchange')
     color = fields.Integer()
+    patient_code = fields.Char(string="Patient code", copy=False, default='ptxxx')
 
     @api.depends('age')
     def set_age_group(self):
@@ -22,3 +23,9 @@ class Patient(models.Model):
                 r.age_group = 'major'
             else:
                 r.age_group = 'minor'
+
+    @api.model
+    def create(self, vals):
+        seq = self.env['ir.sequence'].next_by_code('hospital.patient') or '/'
+        vals['patient_code'] = seq
+        return super(Patient, self).create(vals)
