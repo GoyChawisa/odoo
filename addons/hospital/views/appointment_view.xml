@@ -23,7 +23,7 @@
             </field>
         </record>
 
-        <!-- doctor form view -->
+        <!-- appointment form view -->
         <record model="ir.ui.view" id="appointment_form_view">
             <field name="name">appointment.form</field>
             <field name="model">hospital.appointment</field>
@@ -31,8 +31,8 @@
                 <form string="Appointment Form">
                     <sheet>
                         <group string="Appointment">
-                            <field name="patient"/>
-                            <field name="doctor"/>
+                            <field name="patient" widget='selection'/>
+                            <field name="doctor" widget='selection'/>
                             <field name="dateTime"/>
                         </group>
                     </sheet>
