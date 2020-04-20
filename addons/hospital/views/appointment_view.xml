@@ -1,0 +1,58 @@
+<odoo>
+        <record model="ir.actions.act_window" id="appointment_list_action">
+            <field name="name">Appointment</field>
+            <field name="res_model">hospital.appointment</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,calendar</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Create the first appointment
+                </p>
+            </field>
+        </record>
+
+        <!-- appointment tree view -->
+        <record model="ir.ui.view" id="appointment_tree_view">
+            <field name="name">appointment.tree</field>
+            <field name="model">hospital.appointment</field>
+            <field name="arch" type="xml">
+                <tree string="Appointment Tree" class="test">
+                    <field name="patient_code_name"/>
+                    <field name="doctor_code_name"/>
+                    <field name="dateTime"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- doctor form view -->
+        <record model="ir.ui.view" id="appointment_form_view">
+            <field name="name">appointment.form</field>
+            <field name="model">hospital.appointment</field>
+            <field name="arch" type="xml">
+                <form string="Appointment Form">
+                    <sheet>
+                        <group string="Appointment">
+                            <field name="patient"/>
+                            <field name="doctor"/>
+                            <field name="dateTime"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- calendar view -->
+        <record model="ir.ui.view" id="appointment_calendar_view">
+            <field name="name">appointment.calendar</field>
+            <field name="model">hospital.appointment</field>
+            <field name="arch" type="xml">
+                <calendar string="Appointment Calendar" date_start="dateTime" date_stop="dateTime" color="doctor">
+                    <field name="doctor_code_name"/>
+                    <field name="patient_code_name"/>
+                </calendar>
+            </field>
+        </record>
+
+
+        <menuitem id="appointment_menu" name="Appointment" parent="main_hospital_menu" action="appointment_list_action"/>
+
+</odoo>

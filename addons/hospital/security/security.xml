@@ -1,7 +1,14 @@
 <odoo>
+        
+        <record id="module_security_hospital" model="ir.module.category">
+            <field name="name">Hospital Setting</field>
+            <field name="description">Help to you manage hospital</field>
+            <field name="sequence">10</field>
+        </record>
         <!-- doctor manager -->
         <record id="group_manager" model="res.groups">
             <field name="name">Hospital / Manager</field>
+            <field name="category_id" ref="hospital.module_security_hospital"/> 
         </record>
         <record id="only_manager_all_permission" model="ir.rule">
             <field name="name">Manager</field>
@@ -11,22 +18,42 @@
             <field name="perm_write" eval="1"/>
             <field name="perm_create" eval="1"/>
             <field name="perm_unlink" eval="1"/>
+            <field name="domain_force">
+                [(1,'=', 1)]
+            </field>
         </record>
-
         <!-- doctor general -->
-        <record id="group_general" model="res.groups">
+        <!-- <record id="group_general" model="res.groups">
             <field name="name">Hospital / General</field>
-        </record>
+        </record> -->
         <record id="only_general_can_read" model="ir.rule">
             <field name="name">General</field>
             <field name="model_id" ref="model_hospital_patient"/>
-            <field name="groups" eval="[(4, ref('hospital.group_general'))]"/>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
             <field name="perm_read" eval="1"/>
             <field name="perm_write" eval="0"/>
             <field name="perm_create" eval="0"/>
             <field name="perm_unlink" eval="0"/>
             <field name="domain_force">
-                [('doctor_id.user_ref.id','=', user.id)]
+                [('doctor_name.user_ref.id','=', user.id)]
+            </field>
+        </record>
+
+        <!-- test -->
+        <record id="group_test" model="res.groups">
+            <field name="name">Hospital / Test</field>
+            <field name="category_id" ref="hospital.module_security_hospital"/> 
+        </record>
+        <record id="only_manager_all_permission" model="ir.rule">
+            <field name="name">Test</field>
+            <field name="model_id" ref="model_hospital_patient"/>
+            <field name="groups" eval="[(4, ref('hospital.group_manager'))]"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+            <field name="domain_force">
+                [(1,'=', 1)]
             </field>
         </record>
 </odoo>
