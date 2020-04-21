@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    
+
+    <!-- form view -->
+    <record model="ir.ui.view" id="create_appointment_form_wizrad">
+        <field name="name">create.appointment.wizard</field>
+        <field name="model">create.appointment</field>
+        <field name="arch" type="xml">
+            <form string="Create Appointment">
+                <group>
+                    <field name="patient" options="{'no_create': True, 'no_create_edit':True}"/>
+                    <field name="doctor" options="{'no_create': True, 'no_create_edit':True}"/>
+                    <field name="dateTime"/>
+                </group>
+                <footer>
+                    <button name="create_appointment" string="Create" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="create_appointment_wizard">
+        <field name="name">Create Appointment</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">create.appointment</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="create_appointment_form_wizrad"/>
+        <field name="target">new</field>
+        <!-- <field name="view_mode">tree,form</field> -->
+    </record>
+
+</odoo>

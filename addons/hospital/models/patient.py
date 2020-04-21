@@ -29,3 +29,17 @@ class Patient(models.Model):
         seq = self.env['ir.sequence'].next_by_code('hospital.patient') or '/'
         vals['patient_code'] = seq
         return super(Patient, self).create(vals)
+
+    @api.multi
+    def create_appointment_wizard(self):
+        return {
+            'id': 'launch_appointment_wizard',
+            'name': 'Create Appointment',
+            'view_type': 'form',
+            'view_mode': 'form',
+            'src_model': 'hospital.patient',
+            'res_model': 'create.appointment',
+            'target': 'new',
+            'type': 'ir.actions.act_window',
+            'key2': 'client_action_multi'
+        }
