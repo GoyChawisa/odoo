@@ -29,7 +29,7 @@
         "views/patient_view.xml",
         "views/doctor_view.xml",
         "views/appointment_view.xml",
-        "views/patient_contact_view.xml",
+        "views/contact_view.xml",
 
     ],
     # only loaded in demonstration mode
