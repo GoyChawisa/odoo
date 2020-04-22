@@ -3,3 +3,4 @@ patient_manager,Patient Manager,model_hospital_patient,group_manager,1,1,1,1
 patient_general,Patient General,model_hospital_patient,,1,0,0,0
 doctor_manager,Doctor Manager,model_hospital_doctor,,1,1,1,1
 appointment,Appointment Manager,model_hospital_appointment,,1,1,1,1
+
