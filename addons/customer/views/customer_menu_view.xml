@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<odoo>
+    <menuitem id="main_customer_menu" name="CRM" action="pipeline_list_action"/>
+    <menuitem id="customer_menu" name="Sales" parent="main_customer_menu"/>
+    <menuitem id="pipeline_menu" name="My Pipeline" parent="customer_menu" action="pipeline_list_action"/>
+</odoo>
